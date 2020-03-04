@@ -11,7 +11,7 @@ export default class HomePage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            ActiveComponent: 'leaderboard',
+            ActiveComponent: 'profile',
         };
         this.changeActiveComponent = this.changeActiveComponent.bind(this)
     }
