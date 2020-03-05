@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import LoginForm from '../components/login/LoginForm';
+import { StyleSheet, View, Text } from 'react-native';
+import RegisterForm from '../components/register/RegisterForm';
 import axios from 'axios'
 const url = require('../url')
 
@@ -14,9 +14,7 @@ export default class Login extends Component {
             }
         })
     }
-    navigateToRegistration = () => {
-        this.props.navigation.navigate('Register')
-    }
+
     render() {
         return (
             <View style={styles.container}>
@@ -27,10 +25,7 @@ export default class Login extends Component {
                 </Text>
                 </View>
                 <View style={styles.formContainer}>
-                    <LoginForm navigation={this.props.navigation} />
-                </View>
-                <View style = {{flexDirection:'row'}}>
-                    <Text style = {{textAlign:'center', fontSize:20,  paddingBottom:'5%', paddingLeft:'15%'}}>Don't have an account, </Text><TouchableOpacity onPress = {() => this.navigateToRegistration()}><Text style = {{textAlign:'center' ,fontSize:20, paddingBottom:'5%'}}>click here.</Text></TouchableOpacity>
+                    <RegisterForm navigation={this.props.navigation} />
                 </View>
             </View>
         );

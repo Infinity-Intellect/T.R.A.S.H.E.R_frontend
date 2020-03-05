@@ -4,7 +4,7 @@ if (production) {
     url = 'http://project-trasher.herokuapp.com/'
 }
 else {
-    url = "http://192.168.56.1:3000/"
+    url = "http://172.16.11.208:3000/"
 }
 
 module.exports = url
