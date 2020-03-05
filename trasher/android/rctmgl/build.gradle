@@ -1,0 +1,49 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    // React Native
+    provided "com.facebook.react:react-native:+"
+
+    // Mapbox SDK
+    compile 'com.mapzen.android:lost:3.0.4'
+
+
+
+    compile group: 'com.mapbox.mapboxsdk', name: 'mapbox-java-services', version: '2.2.9'
+
+
+
+    compile project(path: ':MapboxGLAndroidSDK_v5.4.1')
+    compile project(path: ':libandroid-telemetry_v2.2.10')
+
+    // Mapbox plugins
+
+    compile('com.mapbox.mapboxsdk:mapbox-android-plugin-localization:0.1.0') {
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-android-sdk'
+    }
+
+    compile('com.mapbox.mapboxsdk:mapbox-android-plugin-locationlayer:0.3.0') {
+        exclude group: 'com.mapbox.mapboxsdk', module: 'mapbox-android-sdk'
+    }
+}
