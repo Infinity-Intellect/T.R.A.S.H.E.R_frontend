@@ -20,8 +20,8 @@ export default class LoginForm extends Component {
             axios.post(_url, { username: this.state.username, password: this.state.password }).then(
                 (response) => {
                     console.log(response.data)
-                    if (response.data.error) {
-                        ToastAndroid.showWithGravityAndOffset(response.data.error[0], ToastAndroid.SHORT, ToastAndroid.BOTTOM, 25, 100)
+                    if (response.data.message === "Invalid Account!") {
+                        ToastAndroid.showWithGravityAndOffset(response.data.message, ToastAndroid.SHORT, ToastAndroid.BOTTOM, 25, 100)
                     }
                     else {
                         this.props.navigation.push('Home')
